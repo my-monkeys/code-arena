@@ -4,7 +4,7 @@
 body { margin:0; background:var(--bg); color:var(--fg); font-family: ui-sans-serif, system-ui, sans-serif; }
 .gate { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1rem; }
 .gate input { padding:.6rem 1rem; font-size:1rem; border-radius:8px; border:1px solid #333; background:var(--panel); color:var(--fg); }
-.gate button, .home button { padding:.6rem 1.2rem; border:0; border-radius:8px; background:var(--accent); color:#111; font-weight:700; cursor:pointer; }
+.gate button { padding:.6rem 1.2rem; border:0; border-radius:8px; background:var(--accent); color:#111; font-weight:700; cursor:pointer; }
 .topbar { display:flex; justify-content:space-between; align-items:center; padding:1rem 1.5rem; border-bottom:1px solid #222; }
 .grid-wrap { padding:1.5rem; max-width:900px; margin:0 auto; }
 .progress { font-size:1.1rem; color:var(--accent); font-weight:700; }
@@ -20,6 +20,8 @@ body { margin:0; background:var(--bg); color:var(--fg); font-family: ui-sans-ser
 .level-view { display:grid; grid-template-columns:1fr 1.2fr; gap:1.5rem; padding:1.5rem; max-width:1200px; margin:0 auto; }
 @media (max-width:800px){ .level-view{ grid-template-columns:1fr; } }
 .statement h2 { margin-top:.5rem; }
+.statement code { background:#2a2e38; padding:.1rem .35rem; border-radius:4px; font-family:ui-monospace,monospace; font-size:.85em; }
+.statement strong { color:#fff; }
 .tag { font-size:.7rem; padding:.1rem .5rem; border-radius:6px; vertical-align:middle; }
 .tag.facile{ background:#143d27; color:#3ddc84; } .tag.moyen{ background:#3d3414; color:#ffcc33; } .tag.difficile{ background:#3d1414; color:#ff5d5d; }
 .back { background:none; border:0; color:var(--accent); cursor:pointer; padding:0; }

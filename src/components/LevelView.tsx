@@ -5,6 +5,7 @@ import { python } from "@codemirror/lang-python";
 import { runCode } from "../runner/runCode";
 import { markSolved, getPseudo } from "../data/progress";
 import Results from "./Results";
+import Statement from "./Statement";
 import type { Level, RunResult } from "../types";
 
 export default function LevelView({
@@ -17,13 +18,16 @@ export default function LevelView({
   async function lancer() {
     setRunning(true);
     setResult(null);
-    const res = await runCode(code, level);
-    setResult(res);
-    setRunning(false);
-    if (res.passed) {
-      const pseudo = getPseudo();
-      if (pseudo) await markSolved(pseudo, level.id);
-      onSolved(level.id);
+    try {
+      const res = await runCode(code, level);
+      setResult(res);
+      if (res.passed) {
+        const pseudo = getPseudo();
+        if (pseudo) await markSolved(pseudo, level.id);
+        onSolved(level.id);
+      }
+    } finally {
+      setRunning(false);
     }
   }
 
@@ -32,7 +36,7 @@ export default function LevelView({
       <div className="statement">
         <button className="back" onClick={onBack}>← niveaux</button>
         <h2>{level.id}. {level.title} <span className={`tag ${level.difficulty}`}>{level.difficulty}</span></h2>
-        <p>{level.statement}</p>
+        <Statement text={level.statement} />
       </div>
       <div className="editor">
         <CodeMirror value={code} height="320px" theme="dark" extensions={[python()]} onChange={setCode} />

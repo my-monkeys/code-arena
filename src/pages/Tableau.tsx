@@ -32,8 +32,8 @@ export default function Tableau() {
                 <span className="cnt">{p.count}/{TOTAL_LEVELS}</span>
               </li>
             ))}
-            {players.length === 0 && <p>En attente des premiers élèves…</p>}
           </ol>
+          {players.length === 0 && <p>En attente des premiers élèves…</p>}
         </section>
         <section className="bylevel">
           <h2>Progression par niveau</h2>
