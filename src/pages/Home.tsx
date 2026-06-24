@@ -3,11 +3,12 @@ import { useState } from "react";
 import { getPseudo, getSolvedLocal } from "../data/progress";
 import PseudoGate from "./PseudoGate";
 import LevelGrid from "../components/LevelGrid";
+import LevelView from "../components/LevelView";
 import type { Level } from "../types";
 
 export default function Home() {
   const [pseudo, setReady] = useState<string | null>(getPseudo());
-  const [solved] = useState<number[]>(getSolvedLocal());
+  const [solved, setSolved] = useState<number[]>(getSolvedLocal());
   const [active, setActive] = useState<Level | null>(null);
 
   if (!pseudo) return <PseudoGate onReady={() => setReady(getPseudo())} />;
@@ -19,8 +20,11 @@ export default function Home() {
         <span>{pseudo}</span>
       </header>
       {active ? (
-        <div>Niveau {active.id} sélectionné (éditeur en Task 10)
-          <button onClick={() => setActive(null)}>← retour</button></div>
+        <LevelView
+          level={active}
+          onBack={() => setActive(null)}
+          onSolved={(id) => setSolved((s) => (s.includes(id) ? s : [...s, id]))}
+        />
       ) : (
         <LevelGrid solved={solved} onSelect={setActive} />
       )}
