@@ -5,3 +5,15 @@ body { margin:0; background:var(--bg); color:var(--fg); font-family: ui-sans-ser
 .gate { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1rem; }
 .gate input { padding:.6rem 1rem; font-size:1rem; border-radius:8px; border:1px solid #333; background:var(--panel); color:var(--fg); }
 .gate button, .home button { padding:.6rem 1.2rem; border:0; border-radius:8px; background:var(--accent); color:#111; font-weight:700; cursor:pointer; }
+.topbar { display:flex; justify-content:space-between; align-items:center; padding:1rem 1.5rem; border-bottom:1px solid #222; }
+.grid-wrap { padding:1.5rem; max-width:900px; margin:0 auto; }
+.progress { font-size:1.1rem; color:var(--accent); font-weight:700; }
+.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:.8rem; }
+.tile { position:relative; text-align:left; padding:1rem; border-radius:12px; border:1px solid #2a2e38; background:var(--panel); color:var(--fg); cursor:pointer; display:flex; flex-direction:column; gap:.3rem; }
+.tile .num { font-size:.8rem; opacity:.6; }
+.tile .t { font-weight:700; }
+.tile.done { border-color:var(--ok); }
+.tile .check { position:absolute; top:.6rem; right:.6rem; }
+.tile.facile { border-left:4px solid #3ddc84; }
+.tile.moyen { border-left:4px solid #ffcc33; }
+.tile.difficile { border-left:4px solid #ff5d5d; }
