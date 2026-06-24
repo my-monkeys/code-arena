@@ -31,3 +31,15 @@ body { margin:0; background:var(--bg); color:var(--fg); font-family: ui-sans-ser
 .res-win { color:var(--ok); font-weight:700; font-size:1.1rem; margin-bottom:.5rem; }
 .res-error { color:var(--ko); font-family:ui-monospace,monospace; }
 .hidden-count { opacity:.7; font-size:.85rem; }
+.tableau { padding:2rem; max-width:1100px; margin:0 auto; }
+.board { display:grid; grid-template-columns:1.4fr 1fr; gap:2rem; }
+@media (max-width:800px){ .board{ grid-template-columns:1fr; } }
+.ranking ol { list-style:none; padding:0; display:flex; flex-direction:column; gap:.5rem; }
+.ranking li { display:grid; grid-template-columns:8rem 1fr 3rem; align-items:center; gap:.8rem; font-size:1.1rem; }
+.ranking .who { font-weight:700; }
+.ranking .bar { background:#222; border-radius:6px; height:14px; overflow:hidden; }
+.ranking .bar span { display:block; height:100%; background:var(--accent); }
+.lvls { display:grid; grid-template-columns:repeat(5,1fr); gap:.5rem; }
+.lvl-stat { background:var(--panel); border-radius:8px; padding:.5rem; text-align:center; }
+.lvl-stat .n { display:block; font-size:.75rem; opacity:.6; }
+.lvl-stat .c { font-size:1.4rem; font-weight:700; color:var(--accent); }
