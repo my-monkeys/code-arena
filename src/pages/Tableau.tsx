@@ -20,7 +20,7 @@ export default function Tableau() {
 
   return (
     <div className="tableau">
-      <h1>Classement — Code Arena</h1>
+      <h1 className="title">Classement</h1>
       <div className="board">
         <section className="ranking">
           <h2>Élèves</h2>
@@ -33,17 +33,20 @@ export default function Tableau() {
               </li>
             ))}
           </ol>
-          {players.length === 0 && <p>En attente des premiers élèves…</p>}
+          {players.length === 0 && <p className="empty">En attente des premiers élèves…</p>}
         </section>
         <section className="bylevel">
           <h2>Progression par niveau</h2>
           <div className="lvls">
-            {LEVELS.map((l) => (
-              <div key={l.id} className="lvl-stat">
-                <span className="n">{l.id}</span>
-                <span className="c">{counts.get(l.id) ?? 0}</span>
-              </div>
-            ))}
+            {LEVELS.map((l) => {
+              const c = counts.get(l.id) ?? 0;
+              return (
+                <div key={l.id} className={`lvl-stat ${c === 0 ? "zero" : ""}`}>
+                  <span className="n">{l.id}</span>
+                  <span className="c">{c}</span>
+                </div>
+              );
+            })}
           </div>
         </section>
       </div>

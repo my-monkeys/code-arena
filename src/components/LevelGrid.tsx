@@ -6,18 +6,23 @@ export default function LevelGrid({
   solved, onSelect,
 }: { solved: number[]; onSelect: (l: Level) => void }) {
   const set = new Set(solved);
+  const pct = (set.size / TOTAL_LEVELS) * 100;
   return (
-    <div className="grid-wrap">
-      <p className="progress">{set.size} / {TOTAL_LEVELS} résolus</p>
+    <section className="grid-wrap">
+      <div className="grid-head">
+        <p className="progress">{set.size} / {TOTAL_LEVELS} niveaux résolus</p>
+        <div className="progress-track"><span style={{ width: `${pct}%` }} /></div>
+      </div>
       <div className="grid">
         {LEVELS.map((l) => (
-          <button key={l.id} className={`tile ${set.has(l.id) ? "done" : ""} ${l.difficulty}`} onClick={() => onSelect(l)}>
-            <span className="num">{l.id}</span>
-            <span className="t">{l.title}</span>
-            {set.has(l.id) && <span className="check">✅</span>}
+          <button key={l.id} className={`tile ${set.has(l.id) ? "done" : ""}`} onClick={() => onSelect(l)}>
+            <span className="tnum">{l.id}</span>
+            <span className={`tdiff ${l.difficulty}`}>{l.difficulty}</span>
+            <span className="ttitle">{l.title}</span>
+            {set.has(l.id) && <span className="tcheck">✓</span>}
           </button>
         ))}
       </div>
-    </div>
+    </section>
   );
 }

@@ -11,7 +11,7 @@ export default function Results({ result }: { result: RunResult | null }) {
   const hiddenPassed = hidden.filter((c) => c.passed).length;
   return (
     <div className="results">
-      {result.passed && <div className="res-win">🎉 Niveau réussi !</div>}
+      {result.passed && <div className="res-win"><span>✓</span> <span>Niveau réussi</span></div>}
       <table>
         <thead><tr><th>Entrée</th><th>Attendu</th><th>Obtenu</th><th></th></tr></thead>
         <tbody>
@@ -20,13 +20,13 @@ export default function Results({ result }: { result: RunResult | null }) {
               <td>{c.args.map(fmt).join(", ")}</td>
               <td>{fmt(c.expected)}</td>
               <td>{c.error ? `⚠ ${c.error}` : fmt(c.got)}</td>
-              <td>{c.passed ? "✅" : "❌"}</td>
+              <td className="status">{c.passed ? "✓" : "✗"}</td>
             </tr>
           ))}
         </tbody>
       </table>
       {hidden.length > 0 && (
-        <p className="hidden-count">Tests cachés : {hiddenPassed} / {hidden.length} ✅</p>
+        <p className="hidden-count">Tests cachés : {hiddenPassed} / {hidden.length} réussis</p>
       )}
     </div>
   );
