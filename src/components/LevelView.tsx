@@ -34,13 +34,13 @@ export default function LevelView({
   return (
     <div className="level-view">
       <div className="statement">
-        <button className="back" onClick={onBack}>← niveaux</button>
-        <h2>{level.id}. {level.title} <span className={`tag ${level.difficulty}`}>{level.difficulty}</span></h2>
+        <button className="btn-text" onClick={onBack}>← Tous les niveaux</button>
+        <h2><span>{level.id}. {level.title}</span> <span className={`tag ${level.difficulty}`}>{level.difficulty}</span></h2>
         <Statement text={level.statement} />
       </div>
       <div className="editor">
-        <CodeMirror value={code} height="320px" theme="dark" extensions={[python()]} onChange={setCode} />
-        <button className="run" onClick={lancer} disabled={running}>
+        <CodeMirror value={code} height="320px" theme="light" extensions={[python()]} onChange={setCode} />
+        <button className="run btn-primary" onClick={lancer} disabled={running}>
           {running ? "Exécution…" : "▶ Lancer les tests"}
         </button>
         <Results result={result} />

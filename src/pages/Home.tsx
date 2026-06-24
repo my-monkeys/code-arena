@@ -14,20 +14,22 @@ export default function Home() {
   if (!pseudo) return <PseudoGate onReady={() => setReady(getPseudo())} />;
 
   return (
-    <div className="home">
+    <>
       <header className="topbar">
-        <strong>Code Arena</strong>
-        <span>{pseudo}</span>
+        <span className="brand"><span className="logo">▷</span> Code Arena</span>
+        <span className="me">{pseudo}</span>
       </header>
-      {active ? (
-        <LevelView
-          level={active}
-          onBack={() => setActive(null)}
-          onSolved={(id) => setSolved((s) => (s.includes(id) ? s : [...s, id]))}
-        />
-      ) : (
-        <LevelGrid solved={solved} onSelect={setActive} />
-      )}
-    </div>
+      <main className="page">
+        {active ? (
+          <LevelView
+            level={active}
+            onBack={() => setActive(null)}
+            onSolved={(id) => setSolved((s) => (s.includes(id) ? s : [...s, id]))}
+          />
+        ) : (
+          <LevelGrid solved={solved} onSelect={setActive} />
+        )}
+      </main>
+    </>
   );
 }
