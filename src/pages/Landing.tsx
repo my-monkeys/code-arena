@@ -5,7 +5,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { TextPlugin } from "gsap/TextPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { TOTAL_LEVELS } from "../levels";
+import { TOTAL_LEVELS, THEMES } from "../levels";
 import Footer from "../components/Footer";
 
 gsap.registerPlugin(useGSAP, TextPlugin, ScrollTrigger);
@@ -98,7 +98,7 @@ export default function Landing() {
         <section className="seg">
           <div className="seg-cmd"><span className="pr">arena $</span> arena --features</div>
           <div className="feat">
-            <div className="f"><span className="fk">20 défis</span><span className="fv">du « hello world » à l'algo — facile, moyen, difficile</span></div>
+            <div className="f"><span className="fk">{TOTAL_LEVELS} défis</span><span className="fv">répartis en {THEMES.length} thèmes, du « hello world » à l'algorithmique</span></div>
             <div className="f"><span className="fk">exécution locale</span><span className="fv">ton code tourne en Python (Pyodide / WebAssembly), aucun serveur</span></div>
             <div className="f"><span className="fk">tests en direct</span><span className="fv">PASS / FAIL instantané, comme un vrai test-runner</span></div>
             <div className="f"><span className="fk">classement</span><span className="fv">grimpe le leaderboard, gagne de l'XP, garde ta série</span></div>

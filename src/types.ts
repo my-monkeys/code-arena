@@ -7,6 +7,7 @@ export type Level = {
   id: number;
   title: string;
   difficulty: Difficulty;
+  theme: string;         // clé de thème (cf. THEMES dans levels.ts)
   statement: string;     // markdown léger (rendu en texte/paragraphes)
   starterCode: string;
   entry: string;         // nom de la fonction à appeler

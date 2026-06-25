@@ -243,6 +243,12 @@ button { font-family: inherit; }
   transition: background .12s;
 }
 .row:hover::before { background: var(--green); }
+/* sections par thème */
+.theme-head { grid-template-columns: 1fr auto; height: 40px; background: var(--panel); border-top: 1px solid var(--line-2); }
+.theme-block:first-child .theme-head { border-top: 0; }
+.theme-head .th-name { color: var(--bright); font-size: 12px; }
+.theme-head .th-name::before { content: "# "; color: var(--green); }
+.theme-head .th-count { color: var(--dim); font-size: 11px; font-variant-numeric: tabular-nums; }
 
 .st { display: grid; place-items: center; }
 .st .ok { color: var(--green); }
