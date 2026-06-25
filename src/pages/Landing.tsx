@@ -6,8 +6,17 @@ import { useGSAP } from "@gsap/react";
 import { TextPlugin } from "gsap/TextPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { TOTAL_LEVELS } from "../levels";
+import Footer from "../components/Footer";
 
 gsap.registerPlugin(useGSAP, TextPlugin, ScrollTrigger);
+
+function PlayIcon() {
+  return (
+    <svg className="ico" width="13" height="13" viewBox="0 0 16 16" aria-hidden="true">
+      <path d="M4.5 3.3v9.4a.6.6 0 0 0 .92.5l7.8-4.7a.6.6 0 0 0 0-1.02L5.42 2.8a.6.6 0 0 0-.92.5Z" fill="currentColor" />
+    </svg>
+  );
+}
 
 const BOOT: [string, string, string][] = [
   ["init", "kernel + runtime", "done"],
@@ -79,7 +88,7 @@ export default function Landing() {
             <h1 className="wordmark">CODE<span className="sp"> </span>ARENA</h1>
             <p className="tagline">// résous des défis Python directement dans ton navigateur — tests en direct, classement, zéro installation.</p>
             <div className="cta">
-              <button className="btn-primary lg" onClick={() => nav("/play")}>▸ lancer l'arène</button>
+              <button className="btn-primary lg" onClick={() => nav("/play")}><PlayIcon /> lancer l'arène</button>
               <button className="btn-text" onClick={() => nav("/tableau")}>voir le classement</button>
             </div>
           </div>
@@ -104,10 +113,10 @@ export default function Landing() {
             <div className="step"><span className="n">02</span><span className="t">écris ta fonction Python</span></div>
             <div className="step"><span className="n">03</span><span className="t">lance les tests, vaincs le défi</span></div>
           </div>
-          <button className="btn-primary lg start" onClick={() => nav("/play")}>▸ commencer maintenant</button>
+          <button className="btn-primary lg start" onClick={() => nav("/play")}><PlayIcon /> commencer maintenant</button>
         </section>
 
-        <footer className="lfoot"><span className="dim">code·arena</span> — my-monkey · 2026<span className="caret sm" /></footer>
+        <Footer />
       </div>
     </div>
   );
