@@ -37,7 +37,7 @@ export default function Results({ result }: { result: RunResult | null }) {
       <div className="rsum">Tests : <b className="p">{passed} réussis</b>, <b className="f">{failed} échoués</b></div>
       {result.passed && (
         <div className="victory">
-          <span className="vt">&#x2bae; DÉFI VAINCU</span>
+          <span className="vt">▸ DÉFI VAINCU</span>
           <span className="vx">niveau résolu · +120 XP</span>
         </div>
       )}
