@@ -48,7 +48,7 @@ export default function Landing() {
         .from(".hero", { opacity: 0, duration: 0.2 }, ">0.25")
         .from(".wordmark", { opacity: 0, scale: 0.93, duration: 0.55, ease: "back.out(1.5)" }, "<")
         .from(".tagline", { opacity: 0, y: 10, duration: 0.4 }, ">-0.15")
-        .from(".cta > *", { opacity: 0, y: 12, stagger: 0.1, duration: 0.35 }, ">-0.1");
+        .from(".cta", { opacity: 0, y: 12, duration: 0.4, clearProps: "transform" }, ">-0.1");
 
       // révélations au scroll
       gsap.utils.toArray<HTMLElement>(".seg").forEach((seg) => {
